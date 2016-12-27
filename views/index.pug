@@ -1,10 +1,11 @@
-doctype html
-html(lang='en')
-  head
-    title= pageTitle
-    script(type='text/javascript').
-  body
-   h1 Hola Pug
-   -var arreglo = ["cristian", "jose"]
-   for a in arreglo
-    p manzana de noche #{a}
+extends ./layout.pug
+
+block contenido
+  div(class="container")
+    h3 Right Aligned Navbar
+    p The .navbar-right class is used to right-align navigation bar buttons
+
+  
+
+
+
