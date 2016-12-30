@@ -1,3 +1,14 @@
+extends ./layout.pug
 
+block contenido-sup
+  form(action="/users" method="POST")
+    div(class="form-group")
+        label(for="email") Email
+        input(type="text" name="email" placeholder="Email" class="form-control")
+    div
+        label(for="password") Password
+        input(type="password" name="password" placeholder="PASSWORD" id="password" class="form-control")
+    div
+        input(type="submit" value="login" class="btn btn-info")
   
 

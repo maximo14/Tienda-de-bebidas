@@ -55,3 +55,8 @@ body {
       }
       .row.content {height:auto;} 
     }
+
+/*para que las letras del login se vean en blanco */    
+form label {
+  color: white;
+}
