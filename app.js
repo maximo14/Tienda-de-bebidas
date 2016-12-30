@@ -1,22 +1,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+var User = require("./models/user").User;
 
 var app = express();
 
-mongoose.connect("mongodb://localhost/tienda_bebidas");
-
-var userSchemaJSON = {
-    email: String,
-    password: String
-};
-
-var user_schema = Schema(userSchemaJSON);
-var User = mongoose.model("User",user_schema);
-
-// Use native promises -- Nose porque es esto pero ahce que ande
-mongoose.Promise = global.Promise;
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
