@@ -13,27 +13,36 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 //hago que express use body-parser para poder acceder a los elementos del html
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //seteo el motor de plantillas, en este caso pug (antes de llamaba jade)
-app.set("view engine","pug");
+app.set("view engine", "pug");
 
 //se asigna la pagina index al la pag principal
 app.get("/", (req, res) => {
-    res.render("index");   
+    res.render("index");
 });
 
-
-app.get("/login",(req,res)=>{
+app.get("/login", (req, res) => {
     res.render("login");
 });
 
-app.post("/users",(req,res)=>{
-    var user = new User({email: req.body.email, password: req.body.password});
+app.get("/register", (req, res) => {
+    res.render("register");
+});
 
-    user.save(function(){
+//se encarga de registar a los usuarios
+app.post("/users", (req, res) => {
+    var user = new User({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        password_confirmation: req.body.passwordrepit
+    });
+
+    user.save(function () {
         res.send("Guardamos tus datos");
-    });   
+    });
 });
 
 //se inicia la aplicacion para que escuche en el puerto 3000

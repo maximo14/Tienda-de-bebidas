@@ -1,0 +1,17 @@
+extends ./layout.pug
+block contenido-int
+  form(action="/users" method="POST")
+    div(class="form-group")
+        label(for="username") Nombre de Usuario
+        input(type="text" name="username" required placeholder="Username" id="username" class="form-control")
+    div
+        label(for="email") Email
+        input(type="email" name="email" required placeholder="Email" class="form-control")
+    div
+        label(for="password") Constraseña
+        input(type="password" name="password" required placeholder="Contraseña" id="password" class="form-control")
+    div
+        label(for="passwordrepit") Repita Contraseña
+        input(type="password" name="passwordrepit" required placeholder="Repita su contraseña" id="passwordrepit" class="form-control")
+    div
+        input(id="regConfirmar" type="submit" value="Confirmar" class="btn btn-info")

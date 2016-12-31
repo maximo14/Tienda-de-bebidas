@@ -8,7 +8,7 @@ html(lang="en")
   link(rel="stylesheet" href="css/mystyle.css")
   script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
-  script(src="..\public\js\my.js")
+  script(src="js/my.js")
 body
  nav(class="navbar navbar-inverse")
   div(class="container-fluid")
@@ -34,7 +34,7 @@ body
           li
             a(href="#") Servicio de cocteleria.
       li
-        a(href="#") Registrarse    
+        a(href="/register") Registrarse    
     ul(class="nav navbar-nav navbar-right")
       li
         a(href="/login")
@@ -50,7 +50,7 @@ div(class="container-fluid text-center")
     div(class="col-sm-2 sidenav")
     
     div(class="col-sm-8 text-left") 
-    block contenido-int
+      block contenido-int
     div(class="col-sm-2 sidenav")  
        
   
