@@ -13,7 +13,7 @@ router.post("/login",(req, res)=>{
         }else{
             console.log(docs);
             req.session.usuario = docs;
-            res.send("Usuario logiado");
+            res.redirect("/");
         }        
     });
 });
