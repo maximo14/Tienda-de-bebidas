@@ -40,7 +40,10 @@ app.post("/users", (req, res) => {
         password_confirmation: req.body.passwordrepit
     });
 
-    user.save(function () {
+    user.save(function (err) {
+        if(err){
+            console.log(String(err));
+        }
         res.send("Guardamos tus datos");
     });
 });
