@@ -1,10 +1,10 @@
 extends ./layout.pug
 
 block contenido-int
-  form(action="" method="POST")
+  form(action="/logear" method="POST")
     div(class="form-group")
-        label(for="email") Email
-        input(type="text" name="email" placeholder="Email" class="form-control")
+        label(for="username") Nombre del Usuario
+        input(type="text" name="username" placeholder="Username" class="form-control")
     div
         label(for="password") Password
         input(type="password" name="password" placeholder="PASSWORD" id="password" class="form-control")

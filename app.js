@@ -27,6 +27,18 @@ app.get("/login", (req, res) => {
     res.render("login");
 });
 
+app.post("/logear",(req, res)=>{
+    User.find({username:req.body.username, password: req.body.password},(err,docs)=>{
+        if (err){
+            console.log(err);
+        }else{
+            console.log(docs);
+            res.send("Usuario logiado");
+        }        
+    });
+});
+
+
 app.get("/register", (req, res) => {
     res.render("register");
 });
