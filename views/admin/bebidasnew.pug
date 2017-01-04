@@ -1,0 +1,16 @@
+extends ./layout_admin.pug
+
+block contenido-int
+    div(class="conteiner-padding")
+        form(action="" method="POST")
+            div(class="form-group")
+                label(for="nombre") Nombre del producto
+                input(type="text" name="nombre" required placeholder="nombre" id="nombre" class="form-control")
+            div
+                label(for="precio") Precio
+                input(type="number" name="precio" min="0" required placeholder="precio" class="form-control")
+            div
+                label(for="foto") Foto
+                input(type="file" name="foto" required id="foto" class="form-control")
+            div
+                input(type="submit" value="Confirmar" class="btn btn-info")         

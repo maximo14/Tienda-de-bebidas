@@ -7,7 +7,7 @@ router.get("/",(req,res)=>{
 });
 
 router.get("/bebidas/new",(req,res)=>{
-
+    res.render("admin/bebidasnew");
 });
 
 router.get("/bebidas/:id/edit",(req,res)=>{

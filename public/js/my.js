@@ -7,6 +7,5 @@ $(document).ready(()=>{
             alert("Las contraseñas no coinciden");
             return false;  
         }     
-    });
-    }
-);
+    });   
+});
