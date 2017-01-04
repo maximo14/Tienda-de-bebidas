@@ -27,15 +27,15 @@ body {
       border-radius: 0;
     }
     
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 450px}
     
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: transparent;
-      height: 100%;
-    }
+/* Set gray background color and 100% height */
+.sidenav {
+   padding-top: 20px;
+   background-color: transparent;
+   height: 100%;
+}
     
     /* Set black background color, white text and some padding */
     footer {
@@ -64,6 +64,8 @@ form label {
 .conteiner-padding{
   padding-top: 30px;
 }
+
+/*lo uso para probar algunas cosas*/
 .pintar-rojo{
   background-color: red;
   color:white;
