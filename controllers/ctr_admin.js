@@ -6,4 +6,31 @@ router.get("/",(req,res)=>{
     res.render("admin/panel");
 });
 
+router.get("/bebidas/new",(req,res)=>{
+
+});
+
+router.get("/bebidas/:id/edit",(req,res)=>{
+
+});
+
+router.route("/bebidas/:id")
+.get((req,res)=>{
+
+})
+.put((req,res)=>{
+
+})
+.delete((req,res)=>{
+
+});
+
+router.route("/bebidas")
+.get((req,res)=>{
+
+})
+.post((req,res)=>{
+
+});
+
 module.exports = router;
