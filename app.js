@@ -8,10 +8,12 @@ var router_users = require("./controllers/ctr_users");
 var router_admin = require("./controllers/ctr_admin");
 var admin_acces_middleware = require("./middlewares/admin_acces");
 
+        //para la conexion a mongo db
 mongoose.connect("mongodb://localhost/tienda_bebidas");
 
 // Use native promises -- Nose porque es esto pero ahce que ande
 mongoose.Promise = global.Promise;
+        // fin de mongo db
 
 // uso express
 var app = express();
@@ -26,7 +28,7 @@ app.use(bodyParser.json());
 //hago que express use body-parser para poder acceder a los elementos del html
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(session({
+app.use(session({ //se puede cambiar esto por cookie session
   secret: 'asa84f1ss',
   resave: false,
   saveUninitialized: false  
@@ -48,5 +50,6 @@ app.get("/", (req, res) => {
 app.use("/users",router_users);
 app.use("/admin",admin_acces_middleware);//midleware para controlar el acceso de administrador
 app.use("/admin",router_admin);
+
 //se inicia la aplicacion para que escuche en el puerto 3000
 app.listen(3000);
