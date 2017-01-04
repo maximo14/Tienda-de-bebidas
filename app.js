@@ -4,6 +4,8 @@ var bodyParser = require("body-parser");
 var User = require("./models/user").User;
 var session = require("express-session");
 var router_users = require("./controllers/ctr_users");
+var router_admin = require("./controllers/ctr_admin");
+var admin_acces_middleware = require("./middlewares/admin_acces");
 
 // uso express
 var app = express();
@@ -23,8 +25,6 @@ app.use(session({
   resave: false,
   saveUninitialized: false  
 }))
-
-
                 ///Fin de los middlewares/////
 
 
@@ -40,5 +40,7 @@ app.get("/", (req, res) => {
 
 //rutas modulares
 app.use("/users",router_users);
+app.use("/admin",admin_acces_middleware);//midleware para controlar el acceso de administrador
+app.use("/admin",router_admin);
 //se inicia la aplicacion para que escuche en el puerto 3000
 app.listen(3000);

@@ -44,7 +44,7 @@ body {
       padding: 15px;
       position: absolute;
       bottom: 0px;    
-      width: 100%;
+      width: 100%;      
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -59,4 +59,12 @@ body {
 /*para que las letras del login se vean en blanco */    
 form label {
   color: white;
+}
+
+.conteiner-padding{
+  padding-top: 30px;
+}
+.pintar-rojo{
+  background-color: red;
+  color:white;
 }
