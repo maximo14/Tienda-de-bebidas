@@ -3,9 +3,15 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var User = require("./models/user").User;
 var session = require("express-session");
+var mongoose = require("mongoose");
 var router_users = require("./controllers/ctr_users");
 var router_admin = require("./controllers/ctr_admin");
 var admin_acces_middleware = require("./middlewares/admin_acces");
+
+mongoose.connect("mongodb://localhost/tienda_bebidas");
+
+// Use native promises -- Nose porque es esto pero ahce que ande
+mongoose.Promise = global.Promise;
 
 // uso express
 var app = express();

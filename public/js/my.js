@@ -7,5 +7,6 @@ $(document).ready(()=>{
             alert("Las contraseñas no coinciden");
             return false;  
         }     
-    });   
+    });  
+    //alert("probando si anda el js"); 
 });
