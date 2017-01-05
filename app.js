@@ -51,5 +51,5 @@ app.use("/users",router_users);
 app.use("/admin",admin_acces_middleware);//midleware para controlar el acceso de administrador
 app.use("/admin",router_admin);
 
-//se inicia la aplicacion para que escuche en el puerto 3000
+//se inicia la aplicacion para que escuche en el puerto 3000 
 app.listen(3000);

@@ -30,7 +30,9 @@ router.route("/bebidas/:id")
 
 router.route("/bebidas")
 .get((req,res)=>{
-
+    Bebida.find({},(err,bebidas)=>{
+        res.render("admin/bebidas/index",{bebidas: bebidas});
+    })
 })
 .post((req,res)=>{
     var bebida = new Bebida({

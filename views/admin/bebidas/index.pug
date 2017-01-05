@@ -1,0 +1,7 @@
+extends ../layout_admin.pug
+
+block contenido-int
+    each item in bebidas
+        div(class="pintar-rojo")
+            h3 Nombre:#{item.nombre}
+            h3 Precio:$#{item.precio}
