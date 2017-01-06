@@ -70,3 +70,8 @@ form label {
   background-color: red;
   color:white;
 }
+
+/*para que exista una separacion en el final de la paguina admin/bebidas/index*/
+.margen-fin{
+  height: 150px;
+}

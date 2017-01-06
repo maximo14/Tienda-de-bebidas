@@ -1,7 +1,18 @@
 extends ../layout_admin.pug
 
-block contenido-int
-    each item in bebidas
-        div(class="pintar-rojo")
-            h3 Nombre:#{item.nombre}
-            h3 Precio:$#{item.precio}
+block contenido-int   
+    div(class="conteiner-padding")    
+        div(class="row")     
+            each item in bebidas          
+                div(class="col-sm-4 ")
+                    div(class="thumbnail")
+                        img(src="/img/bebidas icono.png" alt="Moustiers Sainte Marie" style="width:100%")
+                        div(class="caption")
+                            h5 Nombre:#{item.nombre}
+                            h5 Precio:$#{item.precio}
+                            - var url="/admin/bebidas/"+item._id+"/editar"
+                            - var url2="/admin/bebidas/"+item._id+"/"
+                            a(href=url, class="right-space") Editar   
+                            a(href=url2) Eliminar
+    
+    div(class="margen-fin")
