@@ -75,3 +75,13 @@ form label {
 .margen-fin{
   height: 150px;
 }
+
+form.linkeable{
+  display: inline-block;  
+}
+
+form.linkeable input[type="submit"]{
+  background-color: transparent;
+  border: none;
+  color:red;
+}

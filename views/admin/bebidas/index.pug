@@ -11,8 +11,9 @@ block contenido-int
                             h5 Nombre:#{item.nombre}
                             h5 Precio:$#{item.precio}
                             - var url1="/admin/bebidas/"+item._id+"/edit"
-                            - var url2="/admin/bebidas/"+item._id+"/"
+                            - var url2="/admin/bebidas/"+item._id+"/?_method=DELETE"
                             a(href= url1 class="right-space") Editar   
-                            a(href= url2) Eliminar
+                            form(action=url2 method="POST" class="linkeable")
+                                input(type="submit" value="Eliminar")
     
     div(class="margen-fin")
