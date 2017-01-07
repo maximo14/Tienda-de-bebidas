@@ -1,0 +1,20 @@
+extends ../layout_admin.pug
+
+block contenido-int
+    div(class="conteiner-padding")
+        - var url1 = "/admin/bebidas/"+bebida._id+"?_method=PUT"
+        form(action= url1 method="POST")
+            div(class="form-group")
+                label(for="nombre") Nombre del producto                           
+                input(type="text" name="nombre" value=bebida.nombre required placeholder="nombre" id="nombre" class="form-control")
+            div
+                label(for="precio") Precio
+                input(type="number" value=bebida.precio name="precio" min="0" required placeholder="precio" class="form-control")
+            div                
+                img(src="/img/fernet branca.jpg" id="foto" name="foto") 
+            div
+                label(for="fotoNueva") Nueva foto
+                input(type="file" name="fotoNueva" id="fotoNueva" class="form-control")
+            div
+                input(type="submit" value="Guardar" class="btn btn-info")
+    div(class="margen-fin")

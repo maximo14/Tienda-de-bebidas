@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var User = require("./models/user").User;
 var session = require("express-session");
 var mongoose = require("mongoose");
+var methodOverride = require("method-override");
 var router_users = require("./controllers/ctr_users");
 var router_admin = require("./controllers/ctr_admin");
 var admin_acces_middleware = require("./middlewares/admin_acces");
@@ -24,6 +25,9 @@ app.use(express.static('public'));
 
 //funcion del body parser para el manejo de JSON
 app.use(bodyParser.json());
+
+//para poder usar methodos REST con el navegador
+app.use(methodOverride("_method"));
 
 //hago que express use body-parser para poder acceder a los elementos del html
 app.use(bodyParser.urlencoded({ extended: true }));

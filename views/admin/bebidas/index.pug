@@ -10,9 +10,9 @@ block contenido-int
                         div(class="caption")
                             h5 Nombre:#{item.nombre}
                             h5 Precio:$#{item.precio}
-                            - var url="/admin/bebidas/"+item._id+"/editar"
+                            - var url1="/admin/bebidas/"+item._id+"/edit"
                             - var url2="/admin/bebidas/"+item._id+"/"
-                            a(href=url, class="right-space") Editar   
-                            a(href=url2) Eliminar
+                            a(href= url1 class="right-space") Editar   
+                            a(href= url2) Eliminar
     
     div(class="margen-fin")
