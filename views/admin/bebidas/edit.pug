@@ -11,7 +11,8 @@ block contenido-int
                 label(for="precio") Precio
                 input(type="number" value=bebida.precio name="precio" min="0" required placeholder="precio" class="form-control")
             div                
-                img(src="/img/fernet branca.jpg" id="foto" name="foto") 
+                img(src="/imgUpload/"+bebida._id+"."+bebida.fotoExtension 
+                alt="Moustiers Sainte Marie" style="width:100%")
             div
                 label(for="fotoNueva") Nueva foto
                 input(type="file" name="fotoNueva" id="fotoNueva" class="form-control")

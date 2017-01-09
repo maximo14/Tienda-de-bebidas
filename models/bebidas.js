@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var bebida_schema = new Schema({
     nombre: {type: String, required: true},
     precio: {type: Number, required: true},
-    //fotoPath: String --> agregar en algun momento
+    fotoExtension: {type: String, required: true}
 });
 
 

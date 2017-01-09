@@ -1,6 +1,8 @@
 module.exports = (req, res, next) => {
     try {
-        if (req.session.usuario.username != 'admin') {
+        if (typeof req.session.usuario === 'undefined' ||
+            req.session.usuario.username != 'admin') {
+            console.log("entre por el if");
             res.redirect("/");
         } else {
             next();
@@ -8,5 +10,4 @@ module.exports = (req, res, next) => {
     } catch (err) {
         res.redirect("/");
     }
-
 }

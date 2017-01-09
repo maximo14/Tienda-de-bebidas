@@ -3,7 +3,7 @@ var router = express.Router();
 var User = require("../models/user").User;
 var Bebida = require("../models/bebidas");
 var bebida_find_midleware = require("../middlewares/find_bebida");
-
+var fs= require("fs-extra");
 //direccion base localhost:300/admin/
 
 router.get("/", (req, res) => {
@@ -38,8 +38,8 @@ router.route("/bebidas/:id")
         res.render("admin/bebidas/show");
     })
     .put((req, res) => {
-        res.locals.bebida.nombre = req.body.nombre;
-        res.locals.bebida.precio = req.body.precio;
+        res.locals.bebida.nombre = req.fields.nombre;
+        res.locals.bebida.precio = req.fields.precio;
         res.locals.bebida.save().then(beb => {
             res.render("admin/bebidas/show");
         }, err => {
@@ -69,17 +69,28 @@ router.route("/bebidas")
         })
     })
     .post((req, res) => {
-        var bebida = new Bebida({
-            nombre: req.body.nombre,
-            precio: req.body.precio
-        });
-        bebida.save().then(beb => {
-            res.redirect("/admin/bebidas/" + bebida._id);
-        }, err => {
-            if (err) {
-                console.log(String(err));
-            }
-        });
+        try {
+            var extension = req.files.foto.path.split('.').pop();
+            var bebida = new Bebida({
+                nombre: req.fields.nombre,
+                precio: req.fields.precio,
+                fotoExtension: extension
+            });
+            bebida.save().then(beb => {
+                //renombro a la foto
+                fs.copy(req.files.foto.path, "public/imgUpload/" + bebida._id + "." + extension, (err) => {
+                    if (err) console.log(err);
+                    console.log("guardado imagen exitoso");
+                    res.redirect("/admin/bebidas/" + bebida._id);
+                });
+            }, err => {
+                if (err) {
+                    console.log(String(err));
+                }
+            });
+        } catch (err) {
+            console.log("ocurrio un error: " + String(err));
+        }
     });
 //fin configurarion beebidas
 // fin Bebidas

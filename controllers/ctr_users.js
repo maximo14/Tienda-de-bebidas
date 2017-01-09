@@ -7,7 +7,7 @@ router.get("/login",(req,res)=>{
 });
 
 router.post("/login",(req, res)=>{
-    User.findOne({username:req.body.username, password: req.body.password},(err,docs)=>{
+    User.findOne({username:req.fields.username, password: req.fields.password},(err,docs)=>{
         if (err){
             console.log(err);
         }else{
@@ -24,10 +24,10 @@ router.get("/register", (req, res) => {
 
 router.post("/register", (req, res) => {
     var user = new User({
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password,
-        password_confirmation: req.body.passwordrepit
+        username: req.fields.username,
+        email: req.fields.email,
+        password: req.fields.password,
+        password_confirmation: req.fields.passwordrepit
     });
 
     //guardado de usuarios implementando promesas

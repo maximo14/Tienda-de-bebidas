@@ -5,8 +5,9 @@ block contenido-int
         div(class="row")     
             each item in bebidas          
                 div(class="col-sm-4 ")
-                    div(class="thumbnail")
-                        img(src="/img/bebidas icono.png" alt="Moustiers Sainte Marie" style="width:100%")
+                    div(class="thumbnail")                                   
+                        img(src="/imgUpload/"+item._id+"."+item.fotoExtension
+                        alt="Moustiers Sainte Marie" style="width:100%")
                         div(class="caption")
                             h5 Nombre:#{item.nombre}
                             h5 Precio:$#{item.precio}
