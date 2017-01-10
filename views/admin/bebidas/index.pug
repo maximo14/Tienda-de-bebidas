@@ -1,5 +1,5 @@
-extends ../layout_admin.pug
-
+extends ../layout_admin_for_crud.pug
+         
 block contenido-int   
     div(class="conteiner-padding")    
         div(class="row")     
@@ -7,7 +7,7 @@ block contenido-int
                 div(class="col-sm-4 ")
                     div(class="thumbnail")                                   
                         img(src="/imgUpload/"+item._id+"."+item.fotoExtension
-                        alt="Moustiers Sainte Marie" style="width:100%")
+                        alt="Bebidas" class="img-responsive img-thumbnail")
                         div(class="caption")
                             h5 Nombre:#{item.nombre}
                             h5 Precio:$#{item.precio}
