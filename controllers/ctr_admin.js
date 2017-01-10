@@ -3,7 +3,10 @@ var router = express.Router();
 var User = require("../models/user").User;
 var Bebida = require("../models/bebidas");
 var bebida_find_midleware = require("../middlewares/find_bebida");
-var fs= require("fs-extra");
+var fs= require("fs");
+var multer = require("multer");
+
+var upload = multer({dest:"public/imgUpload"});
 //direccion base localhost:300/admin/
 
 router.get("/", (req, res) => {
@@ -38,8 +41,8 @@ router.route("/bebidas/:id")
         res.render("admin/bebidas/show");
     })
     .put((req, res) => {
-        res.locals.bebida.nombre = req.fields.nombre;
-        res.locals.bebida.precio = req.fields.precio;
+        res.locals.bebida.nombre = req.body.nombre;
+        res.locals.bebida.precio = req.body.precio;
         res.locals.bebida.save().then(beb => {
             res.render("admin/bebidas/show");
         }, err => {
@@ -68,21 +71,21 @@ router.route("/bebidas")
             res.render("admin/bebidas/index", { bebidas: bebidas });
         })
     })
-    .post((req, res) => {
+    .post(upload.single("foto"),(req, res) => {
         try {
-            var extension = req.files.foto.path.split('.').pop();
-            var bebida = new Bebida({
-                nombre: req.fields.nombre,
-                precio: req.fields.precio,
+                var extension = req.file.originalname.split('.').pop();                       
+                var bebida = new Bebida({
+                nombre: req.body.nombre,
+                precio: req.body.precio,
                 fotoExtension: extension
             });
             bebida.save().then(beb => {
                 //renombro a la foto
-                fs.copy(req.files.foto.path, "public/imgUpload/" + bebida._id + "." + extension, (err) => {
-                    if (err) console.log(err);
+                fs.rename(req.file.path,"public/imgUpload/" + bebida._id + "." + extension, err=>{
+                    if (err) console.log(String(err));
                     console.log("guardado imagen exitoso");
                     res.redirect("/admin/bebidas/" + bebida._id);
-                });
+                });              
             }, err => {
                 if (err) {
                     console.log(String(err));

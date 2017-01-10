@@ -1,11 +1,9 @@
 //cargamos los fremaworks, el 'require' es como el import en java.
 var express = require("express");
-//var bodyParser = require("body-parser");
+var bodyParser = require("body-parser");
 var User = require("./models/user").User;
 var session = require("express-session");
 var mongoose = require("mongoose");
-var formidable = require("express-formidable");
-var fs = require("fs-extra");
 var methodOverride = require("method-override");
 var router_users = require("./controllers/ctr_users");
 var router_admin = require("./controllers/ctr_admin");
@@ -28,21 +26,13 @@ var app = express();
 app.use(express.static('public'));
 
 //funcion del body parser para el manejo de JSON
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 //para poder usar methodos REST con el navegador
 app.use(methodOverride("_method"));
 
 //hago que express use body-parser para poder acceder a los elementos del html
-//app.use(bodyParser.urlencoded({ extended: true}));
-
-//para que use formidable--- sirve paa manejar la subida de archivos desde el cliente
-app.use(formidable( {
-        encoding: 'utf-8',
-        uploadDir: 'public/imgUpload',
-        multiples: true,
-        keepExtensions: true         
-}));
+app.use(bodyParser.urlencoded({ extended: true}));
 
 app.use(session({ //se puede cambiar esto por cookie session
   secret: 'asa84f1ss',
