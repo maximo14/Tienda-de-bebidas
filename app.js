@@ -58,4 +58,6 @@ app.use("/admin",admin_acces_middleware);//midleware para controlar el acceso de
 app.use("/admin",router_admin);
 
 //se inicia la aplicacion para que escuche en el puerto 3000 
-app.listen(3000);
+app.listen(3000,'0.0.0.0',()=>{
+        console.log("server run");
+});
